@@ -7,7 +7,6 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 style="font-weight:700;">Our Delicious Cakes 🍰</h2>
-        <a asp-action="Create" class="btn btn-primary rounded-pill px-4">+ Create New</a>
     </div>
 
     <div class="row">
@@ -29,8 +28,6 @@
 
                     <div class="card-footer bg-white border-0 d-flex justify-content-center gap-2 pb-3">
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary rounded-pill">Details</a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary rounded-pill">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger rounded-pill">Delete</a>
                     </div>
                 </div>
             </div>
