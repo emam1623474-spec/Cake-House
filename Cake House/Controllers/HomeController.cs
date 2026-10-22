@@ -1,22 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using Cake_House.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Cake_House.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly MyDB _context;
+        public HomeController(MyDB context)
         {
-            return View();
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var cakes = await _context.Cakes.Take(4).ToListAsync();
+            return View(cakes);
         }
 
         public IActionResult Privacy() => View();
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

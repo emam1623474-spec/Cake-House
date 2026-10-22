@@ -1,7 +1,23 @@
-﻿@{
+﻿@model IEnumerable<Cake_House.Models.Cake>
+@{
     ViewData["Title"] = "Home";
 }
-<div class="text-center">
-    <h1>Welcome to Cake House</h1>
-    <a asp-controller="Cakes" asp-action="Index" class="btn btn-warning">See All Cakes</a>
+<div class="text-center p-4 mb-4" style="background:#fff8e1; border-radius:15px;">
+    <h1 class="fw-bold">Welcome to Cake House</h1>
+    <a asp-controller="Cakes" asp-action="Index" class="btn btn-warning rounded-pill px-4 fw-bold mt-2">See All Cakes</a>
+</div>
+
+<h4 class="text-center mb-4 fw-bold">Our Featured Cakes</h4>
+<div class="row">
+@foreach(var item in Model){
+    <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm" style="border-radius:15px; overflow:hidden;">
+            <img src="@item.ImagePath" style="height:180px; object-fit:cover;" />
+            <div class="card-body text-center">
+                <h6 class="fw-bold">@item.Name</h6>
+                <p class="text-success fw-bold">৳ @item.Price</p>
+            </div>
+        </div>
+    </div>
+}
 </div>
