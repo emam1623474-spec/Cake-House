@@ -1,0 +1,39 @@
+@model IEnumerable<Cake_House.Models.Cake>
+
+@{
+    ViewData["Title"] = "Our Cakes";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="font-weight:700;">Our Delicious Cakes 🍰</h2>
+        <a asp-action="Create" class="btn btn-primary rounded-pill px-4">+ Create New</a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm border-0" style="border-radius:15px; overflow:hidden;">
+                    <img src="@item.ImagePath" class="card-img-top" style="height:220px; object-fit:cover;" alt="@item.Name" />
+                    
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">@item.Name</h5>
+                        <p class="card-text text-muted small" style="height:40px; overflow:hidden;">@item.Description</p>
+                        
+                        <div class="d-flex justify-content-between mt-3 px-2">
+                            <span class="fw-bold text-success">৳ @item.Price</span>
+                            <span class="badge bg-light text-dark border">@item.Pound Pound</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer bg-white border-0 d-flex justify-content-center gap-2 pb-3">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary rounded-pill">Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary rounded-pill">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger rounded-pill">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
