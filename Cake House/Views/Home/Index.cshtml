@@ -1,21 +1,19 @@
-﻿@model IEnumerable<Cake_House.Models.Cake>
-@{
-    ViewData["Title"] = "Home";
-}
-<div class="text-center p-4 mb-4" style="background:#fff8e1; border-radius:15px;">
-    <h1 class="fw-bold">Welcome to Cake House</h1>
-    <a asp-controller="Cakes" asp-action="Index" class="btn btn-warning rounded-pill px-4 fw-bold mt-2">See All Cakes</a>
+﻿@model List<Cake_House.Models.Cake>
+<div class="text-center" style="background:#fff8e1;padding:20px;border-radius:15px;">
+    <h1 class="display-4 fw-bold">Welcome to Cake House</h1>
+    <a asp-controller="Cakes" asp-action="Index" class="btn btn-warning btn-lg rounded-pill mt-2">See All Cakes</a>
 </div>
 
-<h4 class="text-center mb-4 fw-bold">Our Featured Cakes</h4>
-<div class="row">
-@foreach(var item in Model){
-    <div class="col-md-3 col-sm-6 mb-4">
-        <div class="card h-100 shadow-sm" style="border-radius:15px; overflow:hidden;">
-            <img src="@item.ImagePath" style="height:180px; object-fit:cover;" />
+<h3 class="text-center mt-4">Our Featured Cakes</h3>
+<div class="row mt-3">
+@foreach(var cake in Model)
+{
+    <div class="col-md-4 mb-3">
+        <div class="card shadow">
+            <img src="@cake.ImagePath" class="card-img-top" style="height:200px;object-fit:cover;">
             <div class="card-body text-center">
-                <h6 class="fw-bold">@item.Name</h6>
-                <p class="text-success fw-bold">৳ @item.Price</p>
+                <h5>@cake.Name</h5>
+                <p>Tk @cake.Price</p>
             </div>
         </div>
     </div>

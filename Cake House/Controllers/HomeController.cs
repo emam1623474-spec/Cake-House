@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Cake_House.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cake_House.Controllers
 {
@@ -14,12 +11,11 @@ namespace Cake_House.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var cakes = await _context.Cakes.Take(4).ToListAsync();
+            var cakes = _context.Cakes.Take(3).ToList();
             return View(cakes);
         }
-
-        public IActionResult Privacy() => View();
+        public IActionResult Privacy() { return View(); }
     }
 }
