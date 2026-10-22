@@ -1,14 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Cake House";
+﻿@model IEnumerable<Cake_House.Models.Cake>
+
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center py-5" style="background-color:#fff8f0;">
-    <h1 style="font-size:3.5rem; font-weight:bold; color:#d2691e;">Welcome to Cake House</h1>
-    <p class="lead mt-3">Fresh, Delicious & Made With Love</p>
-    <a href="/Cakes" class="btn btn-warning btn-lg mt-3 px-5" style="border-radius:30px; font-weight:bold;">See All Cakes</a>
+<div class="text-center p-5 rounded-3 mb-5" style="background-color:#fff8e1;">
+    <h1 class="display-4 fw-bold" style="color:#b45f06;">Welcome to Cake House</h1>
+    <p class="lead">Fresh, Delicious & Made With Love</p>
+    <a asp-controller="Cakes" asp-action="Index" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold mt-3">See All Cakes</a>
 </div>
 
-<div class="container py-5">
-    <h2 class="text-center mb-3" style="font-weight:bold;">How it works?</h2>
-    <p class="text-center text-muted">1. Click <b>Our Cakes</b> menu -> You will see all cakes you created<br/>2. Click Create New to add cakes</p>
+<h3 class="text-center mb-4 fw-bold">Our Featured Cakes</h3>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100 shadow-sm border-0" style="border-radius:15px; overflow:hidden;">
+                <img src="@item.ImagePath" class="card-img-top" style="height:200px; object-fit:cover;" />
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">@item.Name</h5>
+                    <p class="text-success fw-bold">৳ @item.Price</p>
+                    <a asp-controller="Cakes" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary rounded-pill">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="bg-light p-4 rounded-3 mt-4 text-center">
+    <h4 class="fw-bold">How it works?</h4>
+    <p>1. Click <b>Our Cakes</b> menu -> You will see all cakes you created<br/>
+    2. Click <b>Create New</b> to add cakes (Admin only)</p>
 </div>
