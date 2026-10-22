@@ -1,39 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Cake House - Fresh Cakes";
+    ViewData["Title"] = "Cake House";
 }
-@model IEnumerable<Cake_House.Models.Cake>
 
-<div style="background-color: #fff8f0;">
-    <div class="text-center py-5" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500'); background-size:cover; color:white;">
-        <h1 style="font-size: 3.5rem; font-weight: bold;">Welcome to Cake House</h1>
-        <p class="lead mt-3">Fresh, Delicious & Made With Love</p>
-        <a href="/Cakes" class="btn btn-warning btn-lg mt-3 px-5" style="border-radius:30px; font-weight:bold;">See All Cakes</a>
-    </div>
+<div class="text-center py-5" style="background-color:#fff8f0;">
+    <h1 style="font-size:3.5rem; font-weight:bold; color:#d2691e;">Welcome to Cake House</h1>
+    <p class="lead mt-3">Fresh, Delicious & Made With Love</p>
+    <a href="/Cakes" class="btn btn-warning btn-lg mt-3 px-5" style="border-radius:30px; font-weight:bold;">See All Cakes</a>
+    <a href="/Cakes/Create" class="btn btn-outline-warning btn-lg mt-3 px-5 ms-2" style="border-radius:30px; font-weight:bold;">Create New Cake</a>
+</div>
 
-    <div class="container py-5">
-        <h2 class="text-center mb-5" style="font-weight:bold; color:#d2691e;">Our Special Cakes</h2>
-        <div class="row">
-            @if (Model != null && Model.Any())
-            {
-                @foreach (var cake in Model)
-                {
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow border-0" style="border-radius:15px; overflow:hidden;">
-                            <img src="@cake.ImageUrl" style="height:220px; object-fit:cover;" class="card-img-top" />
-                            <div class="card-body text-center">
-                                <h5>@cake.Name</h5>
-                                <p class="text-muted">@cake.Description</p>
-                                <h5 style="color:#d2691e;">৳ @cake.Price</h5>
-                                <a asp-controller="Cakes" asp-action="Details" asp-route-id="@cake.Id" class="btn btn-sm btn-warning mt-2">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <p class="text-center">No cakes yet. Please <a href="/Cakes/Create">Create New</a> cake!</p>
-            }
-        </div>
-    </div>
+<div class="container py-5">
+    <h2 class="text-center mb-3" style="font-weight:bold;">How it works?</h2>
+    <p class="text-center text-muted">1. Click <b>Our Cakes</b> menu -> You will see all cakes you created<br/>2. Click Create New to add cakes</p>
 </div>
