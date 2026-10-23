@@ -18,7 +18,7 @@ namespace Cake_House.Controllers
                 var cake = new List<Cake>
             {
                  new Cake { Id = 1, Name = "Chocolate Delight", Price = 650, ImagePath = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" },
-                 new Cake { Id = 2, Name = "Vanilla Dream", Price = 550, ImagePath = "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600" },
+                 new Cake { Id = 2, Name = "Vanilla Dream", Price = 550, ImagePath = "/images/vanilla.jpg" },                 
                  new Cake { Id = 3, Name = "Red Velvet", Price = 700, ImagePath = "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=600" }
             };
             }
